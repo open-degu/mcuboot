@@ -143,6 +143,16 @@ config BOOT_HAVE_LOGGING
 	  be defined by setting `LOG_DEFAULT_LEVEL`.
 	  If unsure, leave at the default value.
 
+config BOOT_USB_DFU_MODE
+	bool "Stay in USB DFU mode if triggerd"
+	default n
+	select USB_DFU_CLASS
+	select MULTITHREADING
+	select IMG_MANAGER
+	help
+	  If y, enables USB DFU mode. The trigger of starting
+	  this mode is defined as board specific function.
+
 menuconfig MCUBOOT_SERIAL
 	bool "MCUboot serial recovery"
 	default n

@@ -30,6 +30,10 @@
 #include "bootutil/bootutil.h"
 #include "flash_map_backend/flash_map_backend.h"
 
+#ifdef CONFIG_BOOT_USB_DFU_MODE
+#include "usb_dfu_mode/usb_dfu_mode.h"
+#endif
+
 #ifdef CONFIG_MCUBOOT_SERIAL
 #include "boot_serial/boot_serial.h"
 #include "serial_adapter/serial_adapter.h"
@@ -155,6 +159,12 @@ void main(void)
     int rc;
 
     BOOT_LOG_INF("Starting bootloader");
+
+#ifdef CONFIG_BOOT_USB_DFU_MODE
+    BOOT_LOG_INF("Starting USB DFU mode");
+    start_usb_dfu_mode();
+    BOOT_LOG_INF("Exit");
+#endif
 
     os_heap_init();
 
