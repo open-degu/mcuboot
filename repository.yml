@@ -30,3 +30,5 @@ repo.versions:
     "0-latest": "1.2.0"     # latest stable release
 
     "1.0-latest": "1.2.0"
+
+    "1.3.0-degu1": "1.3.0-degu1"
