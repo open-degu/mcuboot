@@ -75,7 +75,7 @@ static void do_boot(struct boot_rsp *rsp)
                                      rsp->br_hdr->ih_hdr_size);
     irq_lock();
     sys_clock_disable();
-#ifdef CONFIG_BOOT_SERIAL_CDC_ACM
+#if defined(CONFIG_BOOT_SERIAL_CDC_ACM) || defined(CONFIG_BOOT_USB_DFU_MODE)
     /* Disable the USB to prevent it from firing interrupts */
     usb_disable();
 #endif
